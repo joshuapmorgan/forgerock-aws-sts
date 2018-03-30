@@ -11,11 +11,9 @@ VERSION_VAR = $(REPO_PATH)/version.Version
 GIT_VAR = $(REPO_PATH)/version.GitCommit
 BUILD_DATE_VAR = $(REPO_PATH)/version.BuildDate
 
-#REPO_VERSION = $$(git describe --abbrev=0 --tags)
-REPO_VERSION = 1.0
+REPO_VERSION = $$(git describe --abbrev=0 --tags)
 BUILD_DATE = $$(date +%Y%m%d-%H%M)
-#GIT_HASH = $$(git rev-parse --short HEAD)
-GIT_HASH = base64
+GIT_HASH = $$(git rev-parse --short HEAD)
 
 GOBUILD_VERSION_ARGS := -ldflags "-s -X $(VERSION_VAR)=$(REPO_VERSION) -X $(GIT_VAR)=$(GIT_HASH) -X $(BUILD_DATE_VAR)=$(BUILD_DATE)"
 
